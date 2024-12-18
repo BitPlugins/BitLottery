@@ -1,0 +1,6 @@
+name: BitLottery
+version: '${version}'
+main: com.bitplugins.lottery.BitLottery
+api-version: '1.13'
+load: POSTWORLD
+softdepend: [Vault]

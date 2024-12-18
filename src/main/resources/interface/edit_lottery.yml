@@ -1,0 +1,105 @@
+title: '&7Lottery > &aNew Lottery'
+pattern:
+  - 'XXXXXXWSS'
+  - 'XQXCXBWSS'
+  - 'XDXMXKWSS'
+  - 'XXXXXXWSS'
+  - 'XXXZXXWSS'
+items:
+  on-back:
+    code: 'Z'
+    action: 'BACK'
+    name: '&7Back'
+    lore:
+      - '&a '
+      - '&7Left/Right-Click to go back'
+    material: ARROW
+    glow: true
+  info-lottery:
+    code: 'B'
+    action: 'INFO_LOTTERY'
+    name: '&2Lottery Info:'
+    lore:
+      - '&a'
+      - '&7Code: {code}'
+      - '&7Name: {name}'
+      - '&7Tickets: {tickets}'
+      - '&7Price Un: {price}'
+      - '&7Your profit: {profit}'
+      - '&7Date: {date}'
+      - '&7'
+    material: ENDER_EYE
+    glow: true
+  item-lottery:
+    code: 'C'
+    action: 'AWARD'
+    name: '&2No Prize Selected'
+    lore:
+      - '&a '
+      - '&a '
+      - '&7Left-click to close inventory for select item.'
+      - '&7Right-click to select in main hand.'
+    material: BARRIER
+    glow: false
+  ticket-amount:
+    code: 'Q'
+    action: 'TICKET_AMOUNT'
+    name: '&2Number of Shares'
+    lore:
+      - '&a '
+      - '&7Amount: {amount}'
+      - '&a '
+      - '&7Left-click to previous'
+      - '&7Right-click to next'
+    material: FEATHER
+    glow: false
+  ticket-price:
+    code: 'M'
+    action: 'TICKET_PRICE'
+    name: '&2Ticket Price'
+    lore:
+      - '&a '
+      - '&7Price per ticket: {price}'
+      - '&a '
+      - '&7Left/Right-click to set price.'
+    material: SLIME_BALL
+    glow: false
+  date-lottery:
+    code: 'D'
+    action: 'DATE_LOTTERY'
+    name: '&2Draw Date'
+    lore:
+      - '&a '
+      - '&7Draw date is {date}'
+      - '&a '
+      - '&7Limit of {limit} days.'
+      - '&a '
+      - '&7Right-click to go to previous date'
+      - '&7Left-click to go to next date'
+    material: CLOCK
+    glow: false
+  confirm-lottery:
+    code: 'K'
+    action: 'CONFIRM_LOTTERY'
+    name: '&2Confirm Creation'
+    lore:
+      - '&a '
+      - '&7Left/Right-click to create a lottery'
+    material: LIME_WOOL
+    glow: false
+  nothing:
+    code: 'W'
+    action: 'NOTHING'
+    name: '&2'
+    lore:
+      - '&a '
+    material: WHITE_STAINED_GLASS_PANE
+    glow: false
+  inv-see:
+    code: 'S'
+    action: 'SHULKER_BOX_SEE'
+    name: '&2'
+    lore:
+      - '&a '
+    material: WHITE_STAINED_GLASS_PANE
+    glow: false

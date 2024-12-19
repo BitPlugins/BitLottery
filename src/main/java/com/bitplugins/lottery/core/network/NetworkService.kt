@@ -1,6 +1,8 @@
 package com.bitplugins.lottery.core.network
 
+import com.bitplugins.lottery.core.network.di.FileType
 import com.bitplugins.lottery.core.network.response.ResponseWrapper
+import kotlinx.coroutines.flow.Flow
 import java.io.File
 
 interface NetworkService {
@@ -9,7 +11,7 @@ interface NetworkService {
      * @param url URL do recurso.
      * @return ResponseWrapper contendo o resultado da chamada.
      */
-    fun get(url: String): ResponseWrapper<String>
+    suspend fun get(url: String): Flow<ResponseWrapper<String>>
 
     /**
      * Método POST para enviar dados.
@@ -17,7 +19,7 @@ interface NetworkService {
      * @param data Dados a serem enviados.
      * @return ResponseWrapper contendo o resultado da chamada.
      */
-    fun post(url: String, data: String): ResponseWrapper<String>
+    suspend fun post(url: String, data: String): Flow<ResponseWrapper<String>>
 
     /**
      * Método para baixar arquivos.
@@ -25,5 +27,10 @@ interface NetworkService {
      * @param destination Caminho onde o arquivo será salvo.
      * @return ResponseWrapper contendo sucesso ou erro.
      */
-    fun downloadFile(url: String, destination: String): ResponseWrapper<File>
+    suspend fun download(
+        url: String,
+        destination: String? = null,
+        fileName: String,
+        fileType: FileType
+    ): Flow<ResponseWrapper<File>>
 }

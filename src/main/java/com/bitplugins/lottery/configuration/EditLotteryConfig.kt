@@ -25,7 +25,7 @@ class EditItemLotteryConfigManager : ConfigManager<EditItemLotteryConfig>(
                 name = itemNode.node("name").string ?: "",
                 lore = itemNode.node("lore").getList(String::class.java) ?: emptyList(),
                 material = itemNode.node("material").string ?: "",
-                glow = itemNode.node("glow").boolean ?: false
+                glow = itemNode.node("glow").boolean
             )
         }.toMap()
 

@@ -5,24 +5,23 @@ import com.bitplugins.lottery.core.network.response.ResponseWrapper
 import com.github.shynixn.mccoroutine.bukkit.launch
 import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+
+typealias NetworkCall <T> = suspend () -> Flow<ResponseWrapper<T>>
+typealias NetworkCallback <T> = (ResponseWrapper<T>) -> Unit
 
 object RequestExecutor {
 
-    /**
-     * Executa uma chamada de rede de forma síncrona.
-     */
-    fun <T> executeSync(call: () -> ResponseWrapper<T>): ResponseWrapper<T> {
-        return call()
-    }
-
-    /**
-     * Executa uma chamada de rede de forma assíncrona.
-     */
-    fun <T> executeAsync(call: () -> ResponseWrapper<T>, callback: (ResponseWrapper<T>) -> Unit) {
-        BitCore.context.plugin.launch(Dispatchers.IO){
-            val response = call()
-            withContext(BitCore.context.plugin.minecraftDispatcher){
-                callback(response)
+    inline fun <T> networkCall(
+        crossinline call: NetworkCall<T>,
+        crossinline callback: NetworkCallback<T>
+    ) {
+        BitCore.context.plugin.launch(Dispatchers.IO) {
+            call().collect {
+                withContext(BitCore.context.plugin.minecraftDispatcher) {
+                    callback(it)
+                }
             }
         }
     }

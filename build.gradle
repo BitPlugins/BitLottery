@@ -59,6 +59,15 @@ dependencies {
     implementation("com.github.hamza-cskn.obliviate-invs:configurablegui:4.3.0")
     implementation("com.github.hamza-cskn.obliviate-invs:advancedslot:4.3.0")
 
+    implementation 'io.ktor:ktor-client-core:2.3.0'
+    implementation 'io.ktor:ktor-client-cio:2.3.0'
+    implementation 'io.ktor:ktor-client-okhttp:2.3.0'
+
+    implementation 'io.ktor:ktor-client-logging:2.3.0'
+
+    implementation 'io.ktor:ktor-client-serialization:2.3.0'
+    implementation 'io.ktor:ktor-serialization-kotlinx-json:2.3.0'
+
 }
 
 
@@ -103,7 +112,16 @@ shadowJar {
     relocate 'io.leangen.geantyref', 'com.bitplugins.lib.leangen'
     relocate 'DebugProbesKt', 'com.bitplugins.lib.debug'
     relocate 'de.tr7zw.changeme.nbtapi', 'com.bitplugins.lib.nbt'
+    relocate("io.ktor", "com.bitplugins.lib.ktor")
+    relocate 'kotlinx.coroutines', 'com.bitplugins.lib.coroutines'
+
 }
 kotlin {
     jvmToolchain(16)
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        force("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    }
 }

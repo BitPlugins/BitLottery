@@ -35,40 +35,34 @@ object ExceptionLogger {
 
         val boxWidth = 120
 
-        fun padToLength(text: String, length: Int): String {
-            val padding = length - text.length - 2
-            return " " + text + " ".repeat(padding)
-        }
-
         logBuilder.append("-".repeat(boxWidth) + "\n")
 
-        logBuilder.append(padToLength("⚡ BitPlugins Exception Logger ⚡", boxWidth) + "\n")
-        logBuilder.append(padToLength("🚨 Exception Log 🚨", boxWidth) + "\n")
+        logBuilder.append("⚡ BitPlugins Exception Logger ⚡" + "\n")
+        logBuilder.append("🚨 Exception Log 🚨" + "\n")
         logBuilder.append("-".repeat(boxWidth) + "\n")
 
-        logBuilder.append(padToLength("📅 Date: $timestamp", boxWidth) + "\n")
-        logBuilder.append(padToLength("❌ Exception Message: ${exception.message}", boxWidth) + "\n")
-        logBuilder.append(padToLength("🧐 Exception Cause: ${exception.cause}", boxWidth) + "\n")
+        logBuilder.append("📅 Date: $timestamp\n")
+        logBuilder.append("❌ Exception Message: ${exception.message}" + "\n")
+        logBuilder.append("🧐 Exception Cause: ${exception.cause}" + "\n")
         logBuilder.append("-".repeat(boxWidth) + "\n")
 
         customMessage?.let {
-            logBuilder.append(padToLength("💬 Custom Message: $it", boxWidth) + "\n")
+            logBuilder.append("💬 Custom Message: $it\n")
             logBuilder.append("-".repeat(boxWidth) + "\n")
         }
 
-        // Detalhes do stack trace, alinhando corretamente
         exception.stackTrace.firstOrNull()?.let { stackTraceElement ->
-            logBuilder.append(padToLength("🔍 Class: ${stackTraceElement.className}", boxWidth) + "\n")
-            logBuilder.append(padToLength("📝 Method: ${stackTraceElement.methodName}", boxWidth) + "\n")
-            logBuilder.append(padToLength("📍 Line: ${stackTraceElement.lineNumber}", boxWidth) + "\n")
+            logBuilder.append("🔍 Class: ${stackTraceElement.className}" + "\n")
+            logBuilder.append("📝 Method: ${stackTraceElement.methodName}" + "\n")
+            logBuilder.append("📍 Line: ${stackTraceElement.lineNumber}" + "\n")
         }
 
-        val stackTraceTitle = "🗒️ STACK TRACE"
+        val stackTraceTitle = "[ 🗒️ STACK TRACE ]"
         val titlePadding = (boxWidth - stackTraceTitle.length - 2) / 2
         logBuilder.append("-".repeat(titlePadding) + " $stackTraceTitle " + "-".repeat(titlePadding) + "\n")
 
         exception.stackTrace.forEach {
-            logBuilder.append(padToLength(it.toString(), boxWidth) + "\n")
+            logBuilder.append(it.toString() + "\n")
         }
 
         logBuilder.append("-".repeat(boxWidth) + "\n")

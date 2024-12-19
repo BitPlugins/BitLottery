@@ -14,7 +14,6 @@ class FileUtils(private val dataFolder: File) {
         return File(dataFolder, path).exists()
     }
 
-    // Lê o conteúdo de um arquivo como String
     fun readFileAsString(filePath: String): String {
         return try {
             File(dataFolder, filePath).readText()

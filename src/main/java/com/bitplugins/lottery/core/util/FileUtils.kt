@@ -56,11 +56,16 @@ class FileUtils(private val dataFolder: File) {
         }
     }
 
-    fun createDirectory(directoryPath: String) {
-        try {
-            Files.createDirectories(Paths.get(directoryPath))
+    fun createDirectory(directoryPath: String): File? {
+        val file = File(dataFolder, directoryPath)
+        return try {
+            if (!exists(directoryPath)) {
+                file.mkdirs()
+            }
+             file
         } catch (e: IOException) {
-            throw IOException("Failed create directory: $directoryPath", e)
+            ExceptionLogger.logException(IOException("Failed create directory: $directoryPath", e))
+            null
         }
     }
 

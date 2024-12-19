@@ -21,8 +21,8 @@ abstract class BitCore : JavaPlugin() {
     override fun onEnable() {
         context = BitCoreContext(this)
         Logger.info("🚀 Launching the BitLottery plugin.")
-        testNetwork()
-        testConfig()
+        //testNetwork()
+        //testConfig()
     }
 
     override fun onDisable() {
@@ -56,7 +56,7 @@ abstract class BitCore : JavaPlugin() {
             )
         }
 
-        networkCall({ client.post("https://httpbin.org/postf", "param1=value1") }) { response ->
+        networkCall({ client.post("https://httpbin.org/post", "param1=value1") }) { response ->
             response.onState(
                 onSuccess = { data -> Logger.info("✅ Resposta POST: $data") },
                 onLoading = { Logger.info("Carregando") },

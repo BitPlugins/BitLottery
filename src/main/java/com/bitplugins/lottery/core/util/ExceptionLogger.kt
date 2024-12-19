@@ -15,9 +15,7 @@ object ExceptionLogger {
     private const val DATE_FORMAT = "yyyy-MM-dd_HH-mm-ss"
 
     fun logException(exception: Exception, customMessage: String? = null) {
-        if (!BitCore.context.fileUtils.exists(LOG_DIRECTORY)) {
-            BitCore.context.fileUtils.createDirectory(LOG_DIRECTORY)
-        }
+        BitCore.context.fileUtils.createDirectory(LOG_DIRECTORY)
 
         val timestamp = SimpleDateFormat(DATE_FORMAT).format(Date())
         val logFileName = "$LOG_FILE_PREFIX$timestamp.txt"

@@ -16,11 +16,11 @@ class BitCoreContext(val plugin: JavaPlugin) {
 
     val legacyComponentSerializer: LegacyComponentSerializer by lazy {
         LegacyComponentSerializer.builder()
-            .hexColors() // Suporte a cores hexadecimais
-            .useUnusualXRepeatedCharacterHexFormat() // Formato de cores hex incomum
-            .character(LegacyComponentSerializer.SECTION_CHAR) // Suporte ao caractere '&'
-            .character(LegacyComponentSerializer.AMPERSAND_CHAR) // Suporte ao caractere '§'
-            .character(LegacyComponentSerializer.HEX_CHAR) // Suporte ao caractere '#'
+            .hexColors()
+            .useUnusualXRepeatedCharacterHexFormat()
+            .character(LegacyComponentSerializer.SECTION_CHAR)
+            .character(LegacyComponentSerializer.AMPERSAND_CHAR)
+            .character(LegacyComponentSerializer.HEX_CHAR)
             .build()
     }
 }

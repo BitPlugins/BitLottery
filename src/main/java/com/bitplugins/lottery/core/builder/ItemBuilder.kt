@@ -1,32 +1,26 @@
 package com.bitplugins.lottery.core.builder
 
-import com.bitplugins.lottery.core.BitCore
-import com.cryptomorin.xseries.XEnchantment
+import com.bitplugins.lottery.core.BitPlugin
 import com.cryptomorin.xseries.XMaterial
-import com.cryptomorin.xseries.XItemStack
 import com.cryptomorin.xseries.profiles.builder.XSkull
 import com.cryptomorin.xseries.profiles.objects.Profileable
 import de.tr7zw.changeme.nbtapi.NBTItem
-import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Color
 import org.bukkit.Material
-import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.meta.ItemMeta
 import org.bukkit.inventory.meta.LeatherArmorMeta
 import org.bukkit.inventory.meta.PotionMeta
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
-import java.util.*
 
 class ItemBuilder(
     private var itemStack: ItemStack
 ) : Cloneable {
 
-    private val legacyComponent = BitCore.context.legacyComponentSerializer
+    private val legacyComponent = BitPlugin.context.legacyComponentSerializer
 
     constructor(material: Material) : this(XMaterial.matchXMaterial(material).or(XMaterial.STONE).parseItem()!!)
     constructor(material: Material, amount: Int) : this(

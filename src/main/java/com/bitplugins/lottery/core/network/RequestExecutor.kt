@@ -1,6 +1,6 @@
 package com.bitplugins.lottery.core.network
 
-import com.bitplugins.lottery.core.BitCore
+import com.bitplugins.lottery.core.BitPlugin
 import com.bitplugins.lottery.core.network.response.ResponseWrapper
 import com.github.shynixn.mccoroutine.bukkit.launch
 import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
@@ -17,9 +17,9 @@ object RequestExecutor {
         crossinline call: NetworkCall<T>,
         crossinline callback: NetworkCallback<T>
     ) {
-        BitCore.context.plugin.launch(Dispatchers.IO) {
+        BitPlugin.context.plugin.launch(Dispatchers.IO) {
             call().collect {
-                withContext(BitCore.context.plugin.minecraftDispatcher) {
+                withContext(BitPlugin.context.plugin.minecraftDispatcher) {
                     callback(it)
                 }
             }

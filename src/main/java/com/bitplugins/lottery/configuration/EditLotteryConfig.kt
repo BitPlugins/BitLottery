@@ -7,9 +7,9 @@ import eu.decentsoftware.holograms.api.utils.items.ItemBuilder
 import org.spongepowered.configurate.ConfigurationNode
 
 class EditItemLotteryConfigManager : ConfigManager<EditItemLotteryConfig>(
-    fileName = "edit_item_lottery.yml",
+    fileName = "edit_lottery.yml",
     defaultConfig = EditItemLotteryConfig(),
-    defaultResourcePath = "interface/edit_lottery.yml"
+    defaultResourcePath = "interface"
 ) {
 
     override val config: EditItemLotteryConfig = EditItemLotteryConfig()

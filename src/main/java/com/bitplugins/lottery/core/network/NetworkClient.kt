@@ -1,6 +1,6 @@
 package com.bitplugins.lottery.core.network
 
-import com.bitplugins.lottery.core.BitCore
+import com.bitplugins.lottery.core.BitPlugin
 import com.bitplugins.lottery.core.network.di.FileType
 import com.bitplugins.lottery.core.network.response.ResponseWrapper
 import com.bitplugins.lottery.core.util.ExceptionLogger
@@ -92,7 +92,7 @@ class NetworkClient : NetworkService {
         } else {
             "$fileName${fileType.extension}"
         }
-        val file = File(BitCore.context.dataFolder, filePath)
+        val file = File(BitPlugin.context.dataFolder, filePath)
         file.parentFile?.mkdirs()
         return file
     }

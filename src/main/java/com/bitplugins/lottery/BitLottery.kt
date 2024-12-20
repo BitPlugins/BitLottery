@@ -1,16 +1,13 @@
 package com.bitplugins.lottery
 
-import com.bitplugins.lottery.core.BitCore
+import com.bitplugins.lottery.core.BitPlugin
 import com.bitplugins.lottery.core.database.User
 import com.bitplugins.lottery.core.database.UserDatabaseService
-import com.bitplugins.lottery.core.util.FileUtils
 import com.bitplugins.lottery.core.util.Logger
 import com.github.shynixn.mccoroutine.bukkit.launch
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import java.util.*
 
-class BitLottery : BitCore() {
+class BitLottery : BitPlugin() {
 
     override fun onEnable() {
         super.onEnable()

@@ -9,7 +9,7 @@ import com.bitplugins.lottery.core.util.Logger
 import kotlinx.coroutines.runBlocking
 import org.bukkit.plugin.java.JavaPlugin
 
-abstract class BitCore : JavaPlugin() {
+abstract class BitPlugin : JavaPlugin() {
 
 
     companion object {
@@ -22,7 +22,7 @@ abstract class BitCore : JavaPlugin() {
         context = BitCoreContext(this)
         Logger.info("🚀 Launching the BitLottery plugin.")
         //testNetwork()
-        //testConfig()
+        testConfig()
     }
 
     override fun onDisable() {

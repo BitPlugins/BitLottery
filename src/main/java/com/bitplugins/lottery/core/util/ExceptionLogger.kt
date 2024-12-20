@@ -1,10 +1,6 @@
 package com.bitplugins.lottery.core.util
 
-import com.bitplugins.lottery.core.BitCore
-import java.io.BufferedWriter
-import java.io.File
-import java.io.FileWriter
-import java.io.PrintWriter
+import com.bitplugins.lottery.core.BitPlugin
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,7 +11,7 @@ object ExceptionLogger {
     private const val DATE_FORMAT = "yyyy-MM-dd_HH-mm-ss"
 
     fun logException(exception: Exception, customMessage: String? = null) {
-        BitCore.context.fileUtils.createDirectory(LOG_DIRECTORY)
+        BitPlugin.context.fileUtils.createDirectory(LOG_DIRECTORY)
 
         val timestamp = SimpleDateFormat(DATE_FORMAT).format(Date())
         val logFileName = "$LOG_FILE_PREFIX$timestamp.txt"
@@ -23,7 +19,7 @@ object ExceptionLogger {
 
         val logContent = buildLogContent(timestamp, exception, customMessage)
 
-        BitCore.context.fileUtils.writeFile(logFilePath, logContent)
+        BitPlugin.context.fileUtils.writeFile(logFilePath, logContent)
 
         Logger.error("exception: $logFilePath")
     }

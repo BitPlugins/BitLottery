@@ -1,6 +1,6 @@
 package com.bitplugins.lottery.core.config
 
-import com.bitplugins.lottery.core.BitCore
+import com.bitplugins.lottery.core.BitPlugin
 import com.bitplugins.lottery.core.util.FileUtils
 import org.spongepowered.configurate.ConfigurationNode
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader
@@ -12,7 +12,7 @@ abstract class ConfigManager<T : Any>(
     private val defaultResourcePath: String? = null
 ) {
 
-    private val dataFolder = BitCore.context.dataFolder
+    private val dataFolder = BitPlugin.context.dataFolder
 
     private val fileUtils = FileUtils(dataFolder)
 
